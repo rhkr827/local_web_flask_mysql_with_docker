@@ -1,0 +1,100 @@
+* {
+  --main-bg-color: #1E1E1E;
+  --tab-bg-color: #303031;
+  --font-border-color: #A0A0A0;
+  --tab-active-color: #ffffff1c;
+  --font-active-color: #303031;
+
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-family: 'Calibri';
+  background-color: var(--main-bg-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  color: var(--font-border-color);
+}
+
+.container .title {
+
+  font-weight: bold;
+  font-size: 80px;
+  margin-bottom: 10px;
+  order: 1;
+}
+
+.container .subTitle {
+  font-size: 40px;
+  text-decoration-line: underline;
+  margin-bottom: 20px;
+  order: 2;
+}
+
+.wrapper {
+  width: 70%;
+  height: 70%;
+  border: 1px solid var(--font-border-color);
+  order: 3
+}
+
+.wrapper .navbar {
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid var(--font-border-color);
+}
+
+.wrapper .navbar li {
+  flex-grow: 1;
+}
+
+.wrapper .navbar li a {
+  display: flex;
+  flex-grow: 1;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px 5px;
+  transition: 0.5s ease;
+  user-select: none;
+}
+
+.wrapper .navbar li a:hover {
+  transition: 0.5s ease;
+  background-color: var(--tab-active-color);
+}
+
+.wrapper .navbar .vl{
+  width: 0px;
+  height: 45px;
+  border: 1px solid var(--font-border-color);
+  background-color: var(--font-border-color);
+}
+
+.container .content {
+  width: 100%;
+  height: 100%;
+}
+
+
+.container table,
+thead {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  transition: 0.5s ease;
+}
+.container th {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px 10px;
+}
+
+td {
+  font-size: 15px;
+  padding: 7px 7px;
+}

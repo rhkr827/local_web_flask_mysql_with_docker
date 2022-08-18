@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> local web with Python, Flask, MySQL and Docker</title>
+  <link href="../static/style.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="../static/script.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- title -->
+    <div class="title">MyJobHistory </div>
+    <div class="subTitle">Sample Web Application</div>
+    <!-- tab control -->
+    <div class="wrapper">
+      <div class="navbar">
+        <li><a class="li0" onclick="click_tab()">Job History</a></li>
+        <div class="vl"></div>
+        <li><a class="li1" onclick="click_tab()">Job Summary</a></li>
+      </div>
+      <div id="content"></div>
+    </div>
+  </div>
+  <script>
+    let initialized = false;
+    $(document).ready(function () {
+      if (!initialized) {
+        var parse_jh = JSON.parse('{{history|tojson}}');
+        var parse_js = JSON.parse('{{summary|tojson}}');
+        initialized = initialize(parse_jh, parse_js);
+      } else {
+        initialized = true;
+      }
+    });
+  </script>
+</body>
+
+</html>

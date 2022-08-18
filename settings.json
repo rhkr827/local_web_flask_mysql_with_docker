@@ -1,1 +1,1 @@
-{"host": "localhost", "port": 3306, "database": "myjobhist", "username": "sa", "password": "admin!@#$"}
+{ "host": "localhost", "port": 3306, "database": "myjobhist", "username": "root", "password": "admin" }
