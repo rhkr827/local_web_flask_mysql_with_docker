@@ -24,6 +24,11 @@ def run():
                                port=port,
                                charset='utf8')
         cursor = conn.cursor
+
+        # crete jobhist table if not exist
+        # sql = open('create_jobhist_table.sql').read()
+        # cursor.execute(sql)
+
         # insert to db after encoding data
         count_executed = insert_data_from_file(cursor)
 
@@ -33,6 +38,7 @@ def run():
         # select from db after decoding data
         joblist, jobsummary = get_data_from_db(cursor)
 
+        cursor.fetch()
         conn.close()
     except:
         print(traceback.format_exc())

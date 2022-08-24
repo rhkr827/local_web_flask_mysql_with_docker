@@ -11,7 +11,7 @@ from .dataset import jobhist
 
 
 def get_job_hist_count(cursor):
-    cursor.execute('select count(*) from job_hist')
+    cursor.execute('select count(*) from jobhist')
     return cursor.fetchone()
 
 
@@ -22,13 +22,13 @@ def initialize(cursor, use_delete=False):
 
         if job_hist_count > 0:
             if use_delete:
-                cur.execute('delete from job_hist')
+                cur.execute('delete from jobhist')
                 job_hist_count, = get_job_hist_count(cur)
             else:
                 is_exist = True
 
         if job_hist_count == 0:
-            cur.execute('alter table job_hist auto_increment = 0')
+            cur.execute('alter table jobhist auto_increment = 0')
             print('myjobhist db is initialized.\n')
 
     return is_exist
@@ -45,7 +45,7 @@ def insert_data_from_file(cursor):
     myjobs = myjobs.to_numpy()
 
     print('Start inserting to DB after encoding from numpy array job list...\n')
-    query_job_history = 'insert into job_hist (hist_id, raw_data) values (%s, %s)'
+    query_job_history = 'insert into jobhist (hist_id, raw_data) values (%s, %s)'
 
     with cursor() as cur:
         for job in myjobs:
@@ -111,7 +111,7 @@ def get_statistics(jobhist):
 
 
 def get_data_from_db(cursor):
-    query_history = 'select * from job_hist'
+    query_history = 'select * from jobhist'
 
     data_list = []
     with cursor() as cur:
